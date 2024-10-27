@@ -33,6 +33,9 @@ if login == 1:
     
     if user_name:
         print(f"Credentials are valid. Welcome, {user_name}!")
+        choice = int(input("What would you like to do? ([1]Add Tasks [2]View Task )")) 
+
+
     else:
         print("Sorry, you're not in our database.")
 
@@ -45,3 +48,5 @@ elif login == 2:
     with open("userid.txt", "a") as file:
         file.write(f"{user_id},{password},{name}\n")
     print("Account created successfully! You can now log in.")
+
+
