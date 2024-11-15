@@ -5,13 +5,16 @@ print("Simple To-Do List")
 def checkuser():
     while True:
         try:
-            check = int(input("Do you have an Account? ([1] Login [2] Sign Up): "))
+            check = int(input("Do you have an Account? ([1] Login [2] Sign Up [3] Exit): "))
             if check == 1:
                 return 1
             elif check == 2:
                 return 2
+            elif check == 3:
+                print("Exiting Program")
+                break
             else:
-                print("Invalid option. Please enter 1 or 2.")
+                print("Invalid option. Please enter 1, 2 or 3.")
         except ValueError:
             print("Invalid input. Please enter a number.")
 
@@ -71,7 +74,6 @@ def login_flow():
     user_name = check_credentials(check_user_id, check_password)
 
     if user_name:
-        
         print(f"\nWelcome, {user_name}!")
         while True:
             try:
@@ -90,7 +92,8 @@ def login_flow():
             except ValueError:
                 print("Invalid input. Please enter a number.")
     else:
-        print("Sorry, you're not in our database.")
+        print("Sorry, you're not in our database. You may try again.")
+        checkuser()
 
 # Main Program
 login = checkuser()
