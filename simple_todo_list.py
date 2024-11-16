@@ -60,7 +60,7 @@ def mark_task_done(user_id):
 
         if 0 < task_num <= len(tasks):
             tasks[task_num - 1] = tasks[task_num - 1].replace("Incomplete", "Complete")
-            with open(f"{user_id}tasks.txt", "w") as file:
+            with open(f"{user_id}_tasks.txt", "w") as file:
                 file.writelines(tasks)
             print("Task marked as complete.")
         else:
