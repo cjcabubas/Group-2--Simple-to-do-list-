@@ -45,7 +45,7 @@ def view_tasks(user_id):
                 print("\nYour Tasks:")
                 for idx, task in enumerate(tasks, 1):
                     title, description, timestamp, status = task.strip().split(",")
-                    print(f"[{idx}] Title: {title}, Description: {description}, Date: {timestamp}, Status: {status}")
+                    print(f"[{idx}] Title: {title}, Description: {description}, Date Added: {timestamp}, Status: {status}")
             else:
                 print("No tasks found.")
     except ValueError:
