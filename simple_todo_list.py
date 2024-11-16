@@ -68,6 +68,8 @@ def mark_task_done(user_id):
     except (ValueError, FileNotFoundError):
         print("An error occurred. Make sure to enter a valid task number.")
 
+login = 0
+
 def login_flow():
     check_user_id = input("Enter User ID: ")
     check_password = input("Enter Password: ")
@@ -93,22 +95,25 @@ def login_flow():
                 print("Invalid input. Please enter a number.")
     else:
         print("Sorry, you're not in our database. You may try again.")
-        checkuser()
+        account_start()
 
 # Main Program
-login = checkuser()
+def account_start():
+    login = checkuser()
 
-if login == 1:
-    login_flow()
+    if login == 1:
+        login_flow()
 
-elif login == 2:
-    user_id = input("Enter your User ID: ")
-    password = input("Enter your Password: ")
-    name = input("Enter your Name: ")
+    elif login == 2:
+        user_id = input("Enter your User ID: ")
+        password = input("Enter your Password: ")
+        name = input("Enter your Name: ")
 
-    # Save new user credentials to file
-    with open("userid.txt", "a") as file:
-        file.write(f"{user_id},{password},{name}\n")
-    print("Account created successfully! Please log in.")
+        # Save new user credentials to file
+        with open("userid.txt", "a") as file:
+            file.write(f"{user_id},{password},{name}\n")
+        print("Account created successfully! Please log in.")
 
-    login_flow()
+        login_flow()
+
+account_start()
